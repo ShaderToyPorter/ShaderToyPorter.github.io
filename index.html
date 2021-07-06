@@ -14,17 +14,37 @@
             #dropzone {
                 padding: 20px;
                 border-style: dashed;
-                font-size: 10pt;
                 width: 20%;
+                text-align: center;
             }
+            #linkInput {
+                font-family:verdana,serif;
+                width: 20%;
+                height: 500px;
+                padding: 20px;
+            }
+
+
         </style>
     </head>
     <body>
-        <p id="dropzone" style="font-family:verdana" > Drag your file here.</p>
-        <label>
-            <textarea id="linkInput"  style="width: 20%; height: 500px" placeholder="Or, copy paste the code here!"></textarea>
-        </label>
-        <div> Disclaimer!! I put this code together in like 20 min, your mileage may vary.</div>
-        <div> If you run into an issue, message me on discord tnings#6969</div>
+
+     
+        <div class='child inline-block-child'><p id="dropzone" style="font-family:verdana" > Drag your file here.</p></div>
+    
+
+        <label for="linkInput"></label><textarea id="linkInput" placeholder="Or, copy paste the code here!"></textarea>
+
+        <div style="font-family:verdana">
+            <br>Disclaimers!!<br><br>
+            This code isn't perfect, your mileage may vary. <br><br>
+            Many shaders can't be ported as of now because Mat's mod doesn't support textures or buffers. <br>
+            Check the shader you want to port before you port it, if it has the word "texture" in it, it most likely uses textures, <br>
+            and you should look for a different shader to port.<br><br>
+            If you run into an issue, message me on discord tnings#6969
+            <br><br><br>
+            Thanks to Mat for teaching me how to port shaders and for making the mod!
+        </div>
+
     </body>
 </html>
