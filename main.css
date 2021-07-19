@@ -1,0 +1,59 @@
+#dropzone {
+    padding: 20px;
+    border-style: dashed;
+    width: 86.5%;
+    text-align: center;
+}
+.textArea {
+    width: 40%;
+    height: 500px;
+    padding: 20px;
+    resize: none;
+}
+.left{
+    float:left;
+    width:50%;
+}
+.right{
+    float:left;
+    width:50%;
+}
+.header-3{
+    font-size: 20px;
+}
+.normaltext{
+    font-size: 15px;
+}
+.bottomright{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 13px;
+}
+#info{
+    height: 597px;
+    width:93.5%;
+    padding: 20px;
+    border-style: solid;
+}
+#outputArea{
+    background-color: #e0e0e0;
+}
+body{
+    font-family:verdana,serif;
+    background-color: #2B2B2B;
+    color: #ffffff;
+    opacity: 87%;
+}
+a:link {
+    color: #FB7AFC;
+}
+a:visited {
+    color: #FB7AFC;
+}
+a:hover {
+    color: #FB7AFC;
+}
+a:active {
+    color: #FB7AFC;
+}

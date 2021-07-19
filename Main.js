@@ -8,6 +8,21 @@ function setup() {
 
     const input = document.getElementById("linkInput");
     const output = document.getElementById("outputArea");
+    const blindmode = document.getElementById("blindmode");
+
+
+    blindmode.addEventListener("change", function (){
+        if(blindmode.checked){
+            document.body.style.backgroundColor = "#ffffff";
+            document.body.style.color = "#000000";
+            document.body.style.opacity = "100%";
+        }
+        else{
+            document.body.style.backgroundColor = "#2B2B2B";
+            document.body.style.color = "#ffffff";
+            document.body.style.opacity = "87%";
+        }
+    });
 
 
     input.oninput = function (e) {
@@ -44,6 +59,8 @@ function setup() {
 
         downloadFile(file, filename);
     });
+
+
 
     function highlight() {
         dropzone.style('background-color', '#cee5d0');
