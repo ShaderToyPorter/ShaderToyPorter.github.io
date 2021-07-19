@@ -7,15 +7,43 @@ function setup() {
     dropzone.drop(gotFile, unHighlight);
 
     const input = document.getElementById("linkInput");
-    const Http = new XMLHttpRequest();
+    const output = document.getElementById("outputArea");
 
-    input.onkeypress = function (e) {
+
+    input.oninput = function (e) {
         if (!e) e = window.event;
         let keyCode = e.code || e.key;
-        if (keyCode === 'Enter') {
-            process(input.value.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g,''));
+
+        // if (keyCode === 'Enter') {
+        //     output.value = process(input.value.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g,''));
+        // }
+
+        if(!input.value){
+            output.value = null;
+        }
+        else {
+            output.value = process(input.value.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, ''));
         }
     }
+
+    const downloadbtn = document.getElementById("downloadbtn");
+    const nameInput = document.getElementById("nameInput");
+
+    downloadbtn.addEventListener("click", function() {
+        let rawText = process(input.value.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g,''));
+
+        let blob = new Blob([rawText], {type: 'text/plain'});
+        let file = new File([blob], "menu-shader.txt", {type: "text/plain"});
+
+        let filename = "menu-shader.fsh";
+
+        if(nameInput.value){
+            filename = nameInput.value;
+        }
+
+
+        downloadFile(file, filename);
+    });
 
     function highlight() {
         dropzone.style('background-color', '#cee5d0');
@@ -64,10 +92,12 @@ function setup() {
             "uniform float pulse1;\n" +
             "uniform float pulse2;\n" +
             "uniform float pulse3; \n\n\n" + rawText;
-        console.log(rawText);
-        let blob = new Blob([rawText], {type: 'text/plain'});
-        let file = new File([blob], "menu-shader.txt", {type: "text/plain"});
-        downloadFile(file, "menu-shader.fsh")
+
+        // let blob = new Blob([rawText], {type: 'text/plain'});
+        // let file = new File([blob], "menu-shader.txt", {type: "text/plain"});
+        // downloadFile(file, "menu-shader.fsh");
+
+        return(rawText);
 
     }
 
